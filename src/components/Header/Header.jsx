@@ -32,29 +32,22 @@ const Header = () => {
                             &times;
                         </button>
                         <ul className="navbar-nav">
-                            <li className="nav-item ">
-
+                            <li className="home mb-3">
                                 <FontAwesomeIcon icon={faHome} className="iconColor" /> Home
-
                             </li>
-                            <li className="nav-item">
-                                <FontAwesomeIcon icon={faArrowTrendUp} />Popular
-
+                            <li className="popular mb-3">
+                                <FontAwesomeIcon icon={faArrowTrendUp} className="iconColor" />Popular
                             </li>
-                            <li className="nav-item">
-                                <FontAwesomeIcon icon={faGlobe} /> All
-
+                            <li className="home mb-3">
+                                <FontAwesomeIcon icon={faGlobe} className="iconColor" /> All
                             </li>
                         </ul>
-
                     </div>
                 </nav>
                 <BsSun className='theme' />
                 <img className="reddit-Logo" src="https://res.cloudinary.com/dtvqmmc3d/image/upload/v1736314571/reddit_logo_combination__2017___2023__by_thecobynetwork_dgqola7_kt8f1m.png" alt="logo" />
             </div>
-
             <div className='lg-container'>
-
                 <div className="nav sideBar-Home">
                     <p className='home'> <FontAwesomeIcon icon={faHome} className="iconColor" />Home</p>
                     <p className='popular' ><FontAwesomeIcon icon={faArrowTrendUp} className="iconColor" /> Popular  </p>
@@ -76,7 +69,6 @@ const Header = () => {
                         <img alt="logo" className="profileImagelg" src="https://res.cloudinary.com/dtvqmmc3d/image/upload/v1736314354/pngegg_smej0a.png" />
                         <ChevronDown className="w-4 h-4" />
                     </div>
-
                 </div>
             </div>
         </header>
