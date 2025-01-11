@@ -1,45 +1,57 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import PostCard from '../PostCard/PostCard';
 import './PopularSection.css';
+import { ClipLoader } from 'react-spinners';
 
 const PopularSection = () => {
     const [posts, setPosts] = useState([]);
     const [sort, setSort] = useState('hot');
-    const [search, onSearch] = useState("")
+    const [activeButton, setActiveButton] = useState('hot');
+    const [loading, setLoading] = useState(false);  // Loading state for spinner
+
+    const fetchPosts = useCallback(async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get(`https://www.reddit.com/r/popular/${sort}/.json?limit=5`);
+            setPosts(response.data.data.children);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        } finally {
+            setLoading(false);
+        }
+    }, [sort]);
 
     useEffect(() => {
         fetchPosts();
-    }, [sort]);
-    const onCLickSearchBtn = async () => {
-        const filterData = await axios.get(`https://www.reddit.com/search.json?q=${search}`)
-        const data = await filterData.data;
-        console.log(data)
-        setPosts([])
-        setPosts(data.data.children)
-    }
+    }, [fetchPosts]);  // Add fetchPosts here
 
-    const fetchPosts = async () => {
-        const response = await axios.get(`https://www.reddit.com/r/popular/${sort}/.json?limit=10`).then((response) => setPosts(response.data.data.children))
-            .catch((error) => console.error("Error fetching data:", error));
+    const buttonClicking = (option) => {
+        setActiveButton(option);
+        setSort(option);
     };
 
     return (
         <section className="popular-section">
-            <h2>Popular</h2>
-            <div className="sort-options">
-                {['hot', 'new', 'controversial', 'rising', 'top'].map(option => (
-                    <button key={option} onClick={() => setSort(option)}>{option}</button>
-                ))}
+            <div className='popularHeading'>
+                <h2 className='pop-heading'>Popular</h2>
+                <div className="sort-options">
+                    {['hot', 'new', 'controversial', 'rising', 'top'].map(option => (
+                        <button className={`list-button ${activeButton === option ? "active" : ""}`} key={option} onClick={() => buttonClicking(option)}>{option}</button>
+                    ))}
+                </div>
             </div>
             <div className="posts">
-                {posts.map(post => (
-                    <PostCard key={post.data.id} post={post.data} />
-                ))}
+                {loading ? (
+                    <div className="loading-spinner">
+                        <ClipLoader size={50} color="orange" loading={loading} />
+                    </div>
+                ) : (
+                    posts.map(post => (
+                        <PostCard key={post.data.id} post={post.data} />
+                    ))
+                )}
             </div>
-            <input type="text" placeholder="Find community or post" className="search-bar" onChange={(e) => onSearch(e.target.value)} />
-            <button onClick={onCLickSearchBtn}>search</button>
         </section>
     );
 };

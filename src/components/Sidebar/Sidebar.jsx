@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.css';
-import { Home, TrendingUp, Users } from 'lucide-react';
+
 
 const favorites = [
     { icon: '👤', name: 'r/funymore', count: 156 },
@@ -11,7 +11,7 @@ const favorites = [
 
 const redditFeeds = [
     { icon: '🎬', name: 'r/moview', count: 4 },
-    { icon: '🎮', name: 'r/gaming', count: 32 },
+    { icon: '🎮', name: 'r/gaming' },
     { icon: '📸', name: 'r/pics', count: 32 },
     { icon: '🎁', name: 'r/gifs' },
 ];
@@ -26,21 +26,9 @@ const community = [
 export default function Sidebar() {
     return (
         <div className="sidebar">
-            <div className="space-y-2">
-                <div className="nav-item">
-                    <Home className="w-5 h-5" />
-                    <span>Home</span>
-                </div>
-                <div className="nav-item">
-                    <TrendingUp className="w-5 h-5" />
-                    <span>Popular</span>
-                </div>
-                <div className="nav-item">
-                    <Users className="w-5 h-5" />
-                    <span>All</span>
-                </div>
-            </div>
-
+            <select className='dropDown' >
+                <option value="hot item-text">Filter by</option>
+            </select>
             {[
                 { title: 'FAVORITES', items: favorites },
                 { title: 'REDDIT FEEDS', items: redditFeeds },
@@ -51,6 +39,7 @@ export default function Sidebar() {
                         <h3 className="section-title">{section.title}</h3>
                         <span className="section-all">All</span>
                     </div>
+                    {(section.title !== "FAVORITES") ? <hr /> : null}
                     {section.items.map((item) => (
                         <div key={item.name} className="list-item">
                             <div className="item-content">

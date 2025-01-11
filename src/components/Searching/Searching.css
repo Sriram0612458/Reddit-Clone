@@ -1,0 +1,30 @@
+.searching{
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 4px 10px 4px 7px;
+    border-radius: 20px;
+    background-color: #F5F5F5;
+    justify-content: space-between;
+}
+.search-bar{
+    width: 300px;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    outline: none;
+    margin-left: 0px;
+}
+.search_button{
+    background-color: transparent;
+    border: none;
+    margin-bottom:3px;
+}
+.searching{
+    border: solid 1px #d1d1d1;
+}
+@media screen and (max-width: 768px) {
+    .searching{
+        display: none;
+    }
+}

@@ -1,15 +1,27 @@
 .popular-section {
     padding: 20px;
     flex: 1;
+    background-color:#ffffff;
   }
-  
+.active{
+    background-color: #F5F5F5!important;
+}
+.list-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
   .sort-options button {
     margin: 5px;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #eee;
+  
   }
   
   .posts {
@@ -17,4 +29,32 @@
     flex-direction: column;
     gap: 15px;
   }
-  
+  .popularHeading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .pop-heading{
+    font-family: "Roboto", sans-serif;
+  }
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+  @media screen and (max-width: 768px) {
+    .popularHeading{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

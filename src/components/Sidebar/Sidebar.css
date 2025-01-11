@@ -1,6 +1,6 @@
 .sidebar {
     width: 250px;
-    background-color: #f8f9fa;
+    background-color: #F5F5F5 !important;
     padding: 20px;
     border-right: 1px solid #ddd;
   }
@@ -53,17 +53,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+
   }
   
   .section-title {
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    color: #505050	;
   }
   
   .section-all {
-    font-size: 0.75rem;
-    color: #6b7280;
+    font-size: 15px;
+    font-weight: 600;
+    color: 	#D3D3D3;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 6px;
   }
   
   .list-item {
@@ -84,13 +89,30 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+   
   }
   
   .item-text {
     font-size: 0.875rem;
+    color: #6b7280;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
   }
   
   .item-count {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: #505050	;
+    background-color: #D8D8D8;
+    padding: 4px;
+    width: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .dropDown{
+    width: 100%;
+    background-color: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 0.5rem;
   }

@@ -33,6 +33,9 @@
   .profile-icons{
     display: flex;
     align-items: center;
+    width: 13%;
+    justify-content: space-between;
+    margin-left: 10px;
   }
   
   .create-post-lg {
@@ -42,6 +45,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Roboto", sans-serif;
   }
   .popular{
     font-family: "Roboto", sans-serif;
@@ -102,6 +106,7 @@
 .navbar-nav {
   list-style: none;
   padding: 1rem;
+  margin-top: 2rem;
 }
 
 .navbar-nav .nav-item {
@@ -165,13 +170,20 @@ body.menu-open {
 .sideBar-Home{
   display: flex;
   margin-bottom: -17px;
+  margin-left: 3rem;
+  justify-content: space-between;
+  width: 30%;
 }
 .profileImageSmaller{
 width: 30px;
 display: none;
 }
 .profileImagelg{
-  width: 50px;
+  width: 40px;
+  }
+  .comments{
+    font-size: 25px;
+   font-weight: bold;
   }
 .search-icon{
   display: none;
@@ -181,6 +193,11 @@ display: none;
   align-items: center;
   justify-content: space-around;
   width: 100%;
+}
+.theme{
+  font-size: 30px;
+  color: #343a40;
+  margin-left: 1rem;
 }
 @media screen and (max-width: 768px) {
   .navbarContainer{
@@ -195,7 +212,8 @@ display: none;
   .sm-search-container{
     display: flex;
     align-items: center;
-   
+    justify-content: flex-end;
+    margin-right: -4rem;
   }
   .sectionCopy {
     display: flex;
@@ -225,5 +243,9 @@ display: none;
   }
   .reddit-Logo{
     width: 100px;
+    margin-left: -30px;
+  }
+  .theme{
+    display: none;
   }
 }
